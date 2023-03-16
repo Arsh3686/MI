@@ -1,24 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import About from "./components/About";
-import Contact from "./components/Contact";
+import React from "react";
+
+import Store from "./store/Store";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Nav from "./components/Nav";
-import Project from "./components/Project";
-import Services from "./components/Services";
 
 const App = () => {
 	return (
-		<BrowserRouter>
-			<Nav />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/project" element={<Project />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="/services" element={<Services />} />
-				<Route path="/about" element={<About />} />
-			</Routes>
-		</BrowserRouter>
+		<Store>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					{/* <Route path="/cartPage" element={<CartPage />} /> */}
+				</Routes>
+			</Router>
+		</Store>
 	);
 };
 
