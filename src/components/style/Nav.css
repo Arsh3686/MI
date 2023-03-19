@@ -1,0 +1,9 @@
+.nav {
+	/* padding-top: 20px; */
+	display: flex;
+	background-color: gray;
+	color: #fff;
+	height: 40px;
+	align-items: center;
+	justify-content: space-around;
+}

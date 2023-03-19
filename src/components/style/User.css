@@ -1,0 +1,15 @@
+.checkbox {
+	width: 250px;
+	background-color: aqua;
+	display: flex;
+	justify-content: space-around;
+}
+.withFilter {
+	display: flex;
+	flex-direction: column;
+}
+td {
+	padding: 10px 0;
+	border-bottom: 1px solid grey;
+	text-align: center;
+}

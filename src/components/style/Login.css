@@ -1,0 +1,96 @@
+.login {
+	color: #fff;
+	background: linear-gradient(#e2b9e8, #cf96d8);
+	/* background-color: #cf96d8; */
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loginSide,
+.loginInfo {
+	padding: 30px;
+	width: 50vw;
+}
+.loginSide {
+	display: flex;
+	/* align-items: center; */
+	/* border: 1px solid grey; */
+	height: 80%;
+	justify-content: center;
+}
+.loginSideBox {
+	border-radius: 7px;
+	box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.8);
+	padding: 20px 30px;
+	background-color: #ba68c8;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 400px;
+	height: 100%;
+}
+.loginCredentials {
+	display: flex;
+	flex-direction: column;
+}
+input,
+button {
+	outline: none;
+	margin: 7px 0;
+	border: 0;
+	border-radius: 7px;
+	padding: 8px 0;
+}
+input::placeholder {
+	margin-left: 10px;
+}
+.loginButtons {
+	display: flex;
+	justify-content: space-between;
+}
+.loginButtons button {
+	cursor: pointer;
+	padding: 8px 25px;
+	font-size: 15px;
+}
+.loginextra {
+	display: flex;
+	justify-content: space-between;
+}
+.loginExtra__first {
+	display: flex;
+}
+.loginExtra__first input {
+	outline: none;
+	cursor: pointer;
+	margin-right: 5px;
+
+	border: 1px solid #fff;
+}
+.loginbtn {
+	background-color: #ba68c8;
+	border: 1px solid #fff;
+	color: #fff;
+}
+.active {
+	color: #ba68c8;
+	background-color: #fff;
+	box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.8);
+	border: 0;
+}
+.createAccountbtn {
+	background-color: #ba68c8;
+	border: 1px solid #fff;
+	color: #fff;
+}
+.createAccountbtn:hover,
+.loginbtn:hover {
+	color: #ba68c8;
+	background-color: #fff;
+	box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.8);
+	border: 0;
+}
+.forgotPasswordHandler input {
+	width: 100%;
+}
