@@ -21,15 +21,16 @@ export const isLoggedOut = (data) => {
 		payload: data,
 	};
 };
-export const usersData = () => {
+export const getSearchData = (data) => {
 	return {
-		type: "USER_DATA",
+		type: "SEARCH_DATA",
+		payload: data,
 	};
 };
-export const logout = () => {
+export const manipulateData = (data, genre, text) => {
 	return {
-		type: "LOGOUT",
+		type: "ALL_DATA",
+		payload: { genre, data, text },
 	};
 };
-
 export const reducers = combineReducers({ combineReducers });

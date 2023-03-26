@@ -23,15 +23,31 @@ const Home = () => {
 				<Login />
 			) : (
 				<div className="home">
-					<h1>Welcome to React</h1>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Aut placeat dolor molestiae incidunt ex dicta
-						sapiente optio animi earum nulla minima iusto amet
-						soluta, voluptatibus inventore eveniet, quas excepturi
-						voluptate.
-					</p>
-					<button>Explore More !!</button>
+					<div className="homeItem">
+						<h1>Welcome to React</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur, adipisicing
+							elit. Aut placeat dolor molestiae incidunt ex dicta
+							sapiente optio animi earum nulla minima iusto amet
+							soluta, voluptatibus inventore eveniet, quas
+							excepturi voluptate. Lorem ipsum dolor sit amet
+							consectetur, adipisicing elit. Aut placeat dolor
+							molestiae incidunt ex dicta sapiente optio animi
+							earum nulla minima iusto amet soluta, voluptatibus
+							inventore eveniet, quas excepturi voluptate. Lorem
+							ipsum dolor sit amet consectetur, adipisicing elit.
+							Aut placeat dolor molestiae incidunt ex dicta
+							sapiente optio animi earum nulla minima iusto amet
+							soluta, voluptatibus inventore eveniet, quas
+							excepturi voluptate. excepturi voluptate. Lorem
+							ipsum dolor sit amet consectetur, adipisicing elit.
+							Aut placeat dolor molestiae incidunt ex dicta
+							sapiente optio animi earum nulla minima iusto amet
+							soluta, voluptatibus inventore eveniet, quas
+							excepturi voluptate.
+						</p>
+						<button>Explore More !!</button>
+					</div>
 				</div>
 			)}
 		</>

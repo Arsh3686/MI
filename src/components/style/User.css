@@ -1,8 +1,12 @@
 .checkbox {
-	width: 250px;
-	background-color: aqua;
+	width: 550px;
 	display: flex;
 	justify-content: space-around;
+}
+.heading {
+	background-color: #000;
+	color: #fff;
+	padding: 8px 0;
 }
 .withFilter {
 	display: flex;
@@ -12,4 +16,36 @@ td {
 	padding: 10px 0;
 	border-bottom: 1px solid grey;
 	text-align: center;
+}
+input {
+	border: 0;
+	/* background-color: green; */
+	/* border-radius: 50%; */
+}
+.users {
+	padding: 10px 30px;
+}
+
+.checkbox_element {
+	padding: 10px 0;
+}
+@media (max-width: 600px) {
+	.users {
+		padding: 10px 10px;
+	}
+	.heading > th {
+		font-size: 10px;
+	}
+	.detailstr > td {
+		font-size: 10px;
+	}
+}
+@media (max-width: 368px) {
+	td {
+		font-size: 10px;
+		font-weight: 700;
+	}
+	.withoutFilter {
+		text-align: center;
+	}
 }

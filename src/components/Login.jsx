@@ -72,9 +72,6 @@ const Login = () => {
 	};
 
 	useEffect(() => {
-		console.log("loginList", loginList);
-		// const userData = dispatch(usersData);
-		// console.log("userData", userData);
 		setIsLogin(params === "/createAccount" ? true : false);
 		setLoggedUsers(loginList);
 	}, [params, loginList, reducerr.isLoggedIn]);
@@ -82,18 +79,14 @@ const Login = () => {
 		<div className="login">
 			<div className="loginSide">
 				<div className="loginSideBox">
-					<h1>
-						Welcome back to <br />
-						Preety Login
-					</h1>
-
-					<p>
+					<h1>Welcome back to Preety Login</h1>
+					<label>
 						<strong>
 							{isLogin
 								? `Create your Account`
 								: `It's great to have you back!`}
 						</strong>
-					</p>
+					</label>
 					<div className="loginPannel">
 						<div className="loginCredentials">
 							<label htmlFor="Email">Email / Username</label>
@@ -126,12 +119,10 @@ const Login = () => {
 
 						{isLogin === true && (
 							<div className="forgotPasswordHandler">
-								<label htmlFor="">
-									Secret word like FamilyMember's name{" "}
-								</label>
+								<label>Secret word</label>
 								<input
 									type="text"
-									placeholder="    Secret word like ,Mother ,Father name "
+									placeholder="    Secret word like relative name or Anything secret "
 									value={loginData.secretWord}
 									onChange={(e) =>
 										setLoginData({
@@ -141,10 +132,7 @@ const Login = () => {
 									}
 								/>
 								<br />
-								<small>
-									** This word will be used while forget
-									Password **
-								</small>
+								<small>** Used while forget Password **</small>
 							</div>
 						)}
 					</div>
@@ -160,8 +148,9 @@ const Login = () => {
 											remember: e.target.checked,
 										})
 									}
+									id="remember"
 								/>
-								<p>Remember me !!</p>
+								<label htmlFor="remember">Remember me !!</label>
 							</div>
 						)}
 

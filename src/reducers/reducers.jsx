@@ -1,13 +1,13 @@
 const productsCategories = [];
 const electronicProducts = [];
-const usersData = [];
+const all = []; //userData\
+const filterdUserData = [];
 const fetched = async () => {
 	const pp = await (await fetch("https://fakestoreapi.com/products")).json();
 	productsCategories.push(...pp);
 	console.log("products", productsCategories);
 };
 fetched();
-console.log("products", electronicProducts);
 const electronicfetched = () => {
 	fetch("https://fakestoreapi.com/products/categories")
 		.then((e) => e.json())
@@ -16,9 +16,11 @@ const electronicfetched = () => {
 	console.log("usersData", electronicProducts);
 	fetch("https://randomuser.me/api/?results=20")
 		.then((e) => e.json())
-		.then((res) => usersData.push(...res.results));
-
-	console.log("usersData", usersData);
+		.then((res) => {
+			all.push(...res.results);
+			filterdUserData.push(...res.results);
+		});
+	console.log("usersData", all);
 };
 electronicfetched();
 const initialState = {
@@ -27,13 +29,13 @@ const initialState = {
 	isLoggedOut: true,
 	productsCategories,
 	electronicProducts,
-	usersData,
+	all,
+	datas: [],
 };
+
 const reducers = (state = initialState, action) => {
 	switch (action.type) {
 		case "LOGIN":
-			console.log("from reducer login", action);
-
 			const { id, data } = action.payload;
 			return {
 				...state,
@@ -46,9 +48,7 @@ const reducers = (state = initialState, action) => {
 					},
 				],
 			};
-		case "USER_DATA": {
-			return state;
-		}
+
 		case "IS_LOGGED_IN": {
 			console.log("from reducer IS_LOGGED_IN", action);
 
@@ -67,6 +67,31 @@ const reducers = (state = initialState, action) => {
 				isLoggedOut: action.payload,
 			};
 		}
+		case "ALL_DATA": {
+			let data = [];
+
+			if (action.payload.genre === "male") {
+				data = [
+					...all.filter((e) => e.gender === action.payload.genre),
+				];
+			} else if (action.payload.genre === "female") {
+				data = [
+					...all.filter((e) => e.gender === action.payload.genre),
+				];
+			} else if (action.payload.genre === "search") {
+				data = [...all.filter((e) => e.email === action.payload.text)];
+				console.log(data);
+			} else {
+				data = [...action.payload.data];
+			}
+			console.log("action.payload in " + action.payload.text, data);
+			return {
+				...state,
+				all: data,
+				// datas: data,
+			};
+		}
+
 		default:
 			return state;
 	}

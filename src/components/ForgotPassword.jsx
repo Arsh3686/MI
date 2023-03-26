@@ -104,9 +104,9 @@ const ForgotPassword = () => {
 						Welcome back to <br />
 						Preety Login
 					</h1>
-					<p>
+					<label>
 						<strong>Forgot Password Page</strong>
-					</p>
+					</label>
 					<div className="loginPannel">
 						<div className="loginCredentials">
 							<label htmlFor="Email">Email / Username</label>

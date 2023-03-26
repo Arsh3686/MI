@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./style/Product.css";
@@ -17,8 +17,6 @@ const Product = () => {
 	};
 	return (
 		<div className="products">
-			{console.log("-->", state)}
-
 			<div className="firstHalf">
 				{state.category.map((e, id) => {
 					return (
@@ -29,7 +27,7 @@ const Product = () => {
 				})}
 			</div>
 			<div className="secondHalf">
-				{state.category.length > 0 &&
+				{state.products.length > 0 ? (
 					state.products
 						.filter((e) => e.category === cat)
 						.map((e) => {
@@ -41,7 +39,12 @@ const Product = () => {
 									</Link>
 								</ul>
 							);
-						})}
+						})
+				) : (
+					<h1 style={{ color: "red" }}>
+						HEY CAN YOU CHECK YOUR INTERNET CONNECTION PLEASE{" "}
+					</h1>
+				)}
 			</div>
 		</div>
 	);

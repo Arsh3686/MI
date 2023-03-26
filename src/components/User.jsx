@@ -1,46 +1,62 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { manipulateData } from "../actions/actions";
 import "./style/User.css";
 
 const User = () => {
-	const { usersData } = useSelector((state) => state.reducers);
+	const { all } = useSelector((state) => state.reducers);
 	const [cat, setCat] = useState("all");
+	const dispatch = useDispatch();
+	const [allUserData, setAllUserData] = useState([]);
+	const [searchData, setSearchData] = useState("");
 	const [filterTracker, setFilterTracker] = useState({
 		all: true,
 		male: false,
 		female: false,
+		search: false,
 	});
-	const [state, setState] = useState([...usersData]);
-	const filterUserData = (e) => {};
+	const handleSearch = () => {
+		console.log(searchData);
+		setFilterTracker({ ...filterTracker, search: true });
+		setCat("search");
+	};
+	const handleFetch = async () => {
+		let data = await fetch("https://randomuser.me/api/?results=20");
+		let res = await data.json();
+		dispatch(manipulateData(res.results, cat, searchData));
+	};
 	useEffect(() => {
-		console.log(state);
-		// if (cat !== "all") {
-		// 	setState([
-		// 		...state.filter((ele) => {
-		// 			return ele.gender === cat;
-		// 		}),
-		// 	]);
-		// } else {
-		// 	setState([...usersData]);
-		// }
+		handleFetch();
+		setSearchData("");
 	}, [cat]);
 	return (
-		<div>
+		<div className="users">
 			<div className="withoutFilter">
 				<h3>User Details</h3>
-				<p>
+				<label>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Animi quae molestias maxime unde odit eaque laboriosam ea
 					quis dolore, repudiandae, nesciunt iusto doloremque nam
-					nobis! Architecto nobis deleniti inventore ratione.
-				</p>
+					nobis! Architecto nobis deleniti inventore ratione. Lorem
+					ipsum dolor sit amet consectetur adipisicing elit. Animi
+					quae molestias maxime unde odit eaque laboriosam ea quis
+					dolore, repudiandae, nesciunt iusto doloremque nam nobis!
+					Architecto nobis deleniti inventore ratione. Lorem ipsum
+					dolor sit amet consectetur adipisicing elit. Animi quae
+					molestias maxime unde odit eaque laboriosam ea quis dolore,
+					repudiandae, nesciunt iusto doloremque nam nobis! Architecto
+					nobis deleniti inventore ratione.
+				</label>
 			</div>
 			<div className="withFilter">
 				<div className="checkbox">
 					<div className="checkbox_element">
 						<input
-							type="checkbox"
-							checked={filterTracker.all}
+							type="radio"
+							checked={
+								filterTracker.all &&
+								filterTracker.search === false
+							}
 							id="ALL"
 							onChange={(e) =>
 								setFilterTracker({
@@ -48,6 +64,7 @@ const User = () => {
 									male: false,
 									female: false,
 									all: true,
+									search: false,
 								})
 							}
 							onClick={() => setCat("all")}
@@ -56,14 +73,18 @@ const User = () => {
 					</div>
 					<div className="checkbox_element">
 						<input
-							type="checkbox"
-							checked={filterTracker.male}
+							type="radio"
+							checked={
+								filterTracker.male &&
+								filterTracker.search === false
+							}
 							onChange={(e) =>
 								setFilterTracker({
 									...filterTracker,
 									male: true,
 									all: false,
 									female: false,
+									search: false,
 								})
 							}
 							id="MALE"
@@ -73,8 +94,11 @@ const User = () => {
 					</div>
 					<div className="checkbox_element">
 						<input
-							type="checkbox"
-							checked={filterTracker.female}
+							type="radio"
+							checked={
+								filterTracker.female &&
+								filterTracker.search === false
+							}
 							id="FEMALE"
 							onChange={(e) =>
 								setFilterTracker({
@@ -82,67 +106,50 @@ const User = () => {
 									female: true,
 									all: false,
 									male: false,
+									search: false,
 								})
 							}
 							onClick={() => setCat("female")}
 						/>
 						<label htmlFor="FEMALE">FEMALE</label>
 					</div>
+					<div className="search" style={{ display: "flex" }}>
+						<input
+							type="text"
+							placeholder="search"
+							value={searchData}
+							onChange={(e) => setSearchData(e.target.value)}
+						/>
+						<button
+							disabled={filterTracker.search === true}
+							onClick={handleSearch}>
+							search
+						</button>
+					</div>
 				</div>
 				<table>
 					<tbody>
-						<tr>
-							<th>Image</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Gender</th>
+						<tr className="heading">
+							<th className="heading">Image</th>
+							<th className="heading">Name</th>
+							<th className="heading">Email</th>
+							<th className="heading">Gender</th>
 						</tr>
-						{state &&
-							(cat !== "all"
-								? state
-										.filter((ele) => ele.gender === cat)
-										.map((e, id) => {
-											return (
-												<tr key={id}>
-													<td>
-														<img
-															src={
-																e.picture
-																	.thumbnail
-															}
-															alt=""
-														/>
-													</td>
-													<td>
-														{e.name.title}{" "}
-														{e.name.first}{" "}
-														{e.name.last}
-													</td>
-													<td>{e.email}</td>
-													<td>{e.gender}</td>
-												</tr>
-											);
-										})
-								: state.map((e, id) => {
-										return (
-											<tr key={id}>
-												<td>
-													<img
-														src={
-															e.picture.thumbnail
-														}
-														alt=""
-													/>
-												</td>
-												<td>
-													{e.name.title}{" "}
-													{e.name.first} {e.name.last}
-												</td>
-												<td>{e.email}</td>
-												<td>{e.gender}</td>
-											</tr>
-										);
-								  }))}
+						{all.map((e, id) => {
+							return (
+								<tr className="detailstr" key={id}>
+									<td>
+										<img src={e.picture.thumbnail} alt="" />
+									</td>
+									<td>
+										{e.name.title} {e.name.first}{" "}
+										{e.name.last}
+									</td>
+									<td>{e.email}</td>
+									<td>{e.gender}</td>
+								</tr>
+							);
+						})}
 					</tbody>
 				</table>
 			</div>
