@@ -22,10 +22,11 @@
 	justify-content: space-between;
 	/* background-color: aqua; */
 	display: flex;
+	align-items: center;
 }
 .navs p {
 	cursor: pointer;
-	padding: 6px 15px;
+	padding: 3px 7px;
 	border-radius: 6px;
 }
 .navs > p:hover {
@@ -50,5 +51,27 @@
 	background-color: #3628f4;
 	color: #fff;
 }
-.active {
+@media (max-width: 500px) {
+	.nav {
+		padding-top: 2px;
+	}
+	.navs {
+		padding-left: 0px;
+	}
+	.navs p {
+		font-weight: 700;
+		font-size: smaller;
+		cursor: pointer;
+		padding: 0px;
+		border-radius: 6px;
+	}
+	.firstHalf {
+		width: 100%;
+		justify-content: space-around;
+		padding-left: 0px;
+	}
+
+	.secondHalf {
+		display: none;
+	}
 }

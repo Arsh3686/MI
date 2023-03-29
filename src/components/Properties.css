@@ -50,3 +50,50 @@ button {
 	color: #fff;
 	font-size: 18px;
 }
+@media (max-width: 500px) {
+	.filteredResults {
+		/* padding: 0 50px; */
+		/* background-color: aqua; */
+		max-width: 100vw;
+		display: grid;
+		justify-content: center;
+		/* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+	}
+	.properties {
+		padding: 0 10px;
+	}
+	.filterUsingDropDownSelector {
+		display: flex;
+		/* font-size: 15px; */
+		padding: 6px 5px;
+		align-items: center;
+	}
+	select {
+		margin-left: 0px;
+		cursor: pointer;
+		font-size: small;
+
+		border: 0;
+		/* background-color: inherit; */
+	}
+	button {
+		margin-left: 0px;
+		cursor: pointer;
+		font-size: small;
+
+		border: 0;
+		padding: 0px 3px;
+	}
+	.btns {
+		font-size: small;
+	}
+	.search__ h3 {
+		font-size: 14px;
+		letter-spacing: 2px;
+		word-spacing: 3px;
+	}
+	.search {
+		padding-top: 0px;
+		flex-direction: column;
+	}
+}

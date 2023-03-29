@@ -5,7 +5,7 @@ const Nav = () => {
 		<div className="nav">
 			<div className="firstHalf">
 				<div className="logo">
-					<img src="images/bagel.png" width={35} alt="" />
+					<img src="images/bagel.png" width={25} alt="" />
 				</div>
 				<div className="navs">
 					<p>Rent</p>
