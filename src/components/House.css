@@ -1,0 +1,84 @@
+.house {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+		sans-serif;
+	display: flex;
+	flex-direction: column;
+	/* width: 300px; */
+	position: relative;
+	height: 420px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.5);
+	/* border: 1px solid grey; */
+	margin: 20px;
+}
+.houseImg {
+	width: 100%;
+	height: 50%;
+}
+.houseAllDetails {
+	padding: 4px 10px;
+
+	height: 60%;
+	/* background-color: #786ff1; */
+}
+.houseDesc {
+	height: 50px;
+	font-size: 15px;
+	font-weight: 600;
+	word-wrap: break-word;
+	/* padding-top: 5px; */
+}
+.housePrice {
+	display: flex;
+	align-items: center;
+	font-size: 17px;
+	font-weight: 700;
+	justify-content: space-between;
+	/* padding-bottom: 10px; */
+}
+.housePrice img {
+	cursor: pointer;
+}
+.houseImg img {
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+.popular {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	padding: 3px 10px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	background-color: #3628f4;
+	box-shadow: 5px 2px 5px 2px rgba(0, 0, 0, 0.5);
+}
+.houseDetails {
+	border-bottom: 1px solid grey;
+}
+.textPrimary {
+	color: #786ff1;
+}
+.houseTitle {
+	font-size: 15px;
+	font-weight: 700;
+}
+.houseExtraInfo {
+	display: flex;
+	justify-content: space-between;
+}
+.houseCommon {
+	/* background-color: antiquewhite; */
+	display: flex;
+	align-items: center;
+	font-size: small;
+}
+.houseCommon p {
+	padding-left: 10px;
+}

@@ -1,24 +1,23 @@
-import "./style/Nav.css";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { isLoggedOut } from "../actions/actions";
+import "./Nav.css";
 
 const Nav = () => {
-	const dispatch = useDispatch();
-	const logout = () => {
-		dispatch(isLoggedOut(false));
-		localStorage.removeItem("isLoggedIn");
-	};
 	return (
-		<div>
-			<div className="nav">
-				<Link to="/">Home</Link>
-				<Link to="/product">Products</Link>
-				<Link to="/users">Users</Link>
-				<Link to="/contact">Contact</Link>
-				<Link to="/" onClick={logout}>
-					Logout
-				</Link>
+		<div className="nav">
+			<div className="firstHalf">
+				<div className="logo">
+					<img src="images/bagel.png" width={35} alt="" />
+				</div>
+				<div className="navs">
+					<p>Rent</p>
+					<p>Buy</p>
+					<p>Sell</p>
+					<p>Manage Property</p>
+					<p>Resource</p>
+				</div>
+			</div>
+			<div className="secondHalf">
+				<button className="btn">Login</button>
+				<button className="btn active">Sign Up</button>
 			</div>
 		</div>
 	);
